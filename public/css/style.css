@@ -1,0 +1,123 @@
+h1 {
+  text-align: center;
+  font-size: 30px;
+}
+
+img {
+  max-width: 400px;
+  max-height: 466.67px;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+}
+
+.Jogo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.Jogo div:first-child {
+  width: 40%;
+  /* background-color: red; */
+}
+
+.Jogo div:last-child {
+  width: 40%;
+  /* background-color: blue; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.Jogo div:last-child button {
+  background: #27ae60;
+  border-radius: 8px;
+  width: 200px;
+  height: 60px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 23px;
+  text-align: center;
+  color: #fff;
+}
+
+.Jogo div:last-child p {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 68px;
+  color: #000;
+}
+
+.Letras {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 50px;
+}
+
+.Letras div {
+  display: flex;
+  gap: 12px;
+}
+
+.Letras button {
+  width: 40px;
+  height: 40px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  align-items: center;
+  text-align: center;
+  color: #798a9f;
+}
+
+.Chute {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.Chute p {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+  text-align: center;
+  color: #000;
+}
+
+.Chute input {
+  width: 353px;
+  height: 40px;
+  background: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
+}
+
+.Chute button {
+  background: #e1ecf4;
+  border: 1px solid #7aa7c7;
+  border-radius: 3px;
+  width: 100px;
+  height: 40px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  color: #3c76a1;
+}
