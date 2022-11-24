@@ -6,9 +6,10 @@ export default function Letras(props) {
         return alfa
             .filter((_l, i, arr) => bool ? i < arr.length / 2 : i >= arr.length / 2)
             .map((l, i, arr) => <button
+                data-test="letter"
+                key={l}
                 disabled={(jogo && (bool ? letr[i] : letr[i + arr.length])) ||
                     (!jogo && (bool ? !letr[i] : !letr[i + arr.length])) ? " " : ""}
-                key={l}
                 onClick={() => {
                     const newLetr = [...letr];
                     bool ? newLetr[i] = false : newLetr[i + arr.length] = false;

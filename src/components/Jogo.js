@@ -6,13 +6,18 @@ export default function Jogo(props) {
     return (
         <div className="Jogo">
             <div>
-                <img src={require(`../assets/forca${erro}.png`)} alt="" />
+                <img
+                    data-test="game-image"
+                    src={require(`../assets/forca${erro}.png`)}
+                    alt="" />
             </div>
             <div>
-                <button onClick={() => { setJogo(false); rand() }}>
+                <button
+                    data-test="choose-word"
+                    onClick={() => { setJogo(false); rand() }}>
                     Escolher Palavra
                 </button>
-                <p>{!jogo && [...word].map((_letra, i) => <span key={i}>{"_ "}</span>)}</p>
+                {!jogo ? <p data-test="word" data-answer={word}>{[...word].map((_letra, i) => <span key={i}>{"_ "}</span>)}</p> : <></>}
             </div>
         </div>
     )
