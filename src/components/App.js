@@ -6,7 +6,8 @@ import Jogo from './Jogo';
 import Letras from './Letras';
 
 function App() {
-  const [jogo, setJogo] = useState(true); // if jogo is not started = true
+  const [jogo, setJogo] = useState(true); // fresh game = true
+  const [letr, setLetr] = useState(Array.from(Array(26)).map(_e => true)) // never clicked = true
   const [erro, setErro] = useState(0);
   const [word, setWord] = useState("")
   const rand = () => setWord(mywl[Math.floor(Math.random() * mywl.length)])
@@ -23,6 +24,7 @@ function App() {
       />
 
       <Letras
+        letr={[letr, setLetr]}
         alfa={alfa}
         jogo={[jogo, setJogo]}
         erro={[erro, setErro]}

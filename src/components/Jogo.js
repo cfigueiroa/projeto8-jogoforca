@@ -3,7 +3,6 @@ export default function Jogo(props) {
     const [jogo, setJogo] = props.jogo
     const rand = props.rand
     const [word] = props.word
-    // props//?
     return (
         <div className="Jogo">
             <div>

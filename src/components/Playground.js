@@ -1,0 +1,1 @@
+// const alfa = Array.from(Array(26)).map((_e, i) => i + 97).map((x) => String.fromCharCode(x))
