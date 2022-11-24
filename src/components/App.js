@@ -1,25 +1,40 @@
 import { useState } from 'react';
-import alfabeto from '../alfabeto';
-import palavras from '../palavras';
+import alfa from '../alfabeto';
+import mywl from '../palavras';
 import Chute from './Chute';
 import Jogo from './Jogo';
 import Letras from './Letras';
 
 function App() {
-
-  const dados = {
-    state: 0,
-    palavras: palavras,
-    alfabeto: alfabeto,
-    palavra: palavras[Math.floor(Math.random() * palavras.length)],
-  }
+  const [jogo, setJogo] = useState(true); // if jogo is not started = true
+  const [erro, setErro] = useState(0);
+  const [word, setWord] = useState("")
+  const rand = () => setWord(mywl[Math.floor(Math.random() * mywl.length)])
 
   return (
     <div className="App">
       <h1>Jogo da Forca</h1>
-      <Jogo data={dados} />
-      <Letras data={dados} />
-      <Chute data={dados} />
+      <Jogo
+        rand={rand}
+        alfa={alfa}
+        jogo={[jogo, setJogo]}
+        erro={[erro, setErro]}
+        word={[word, setWord]}
+      />
+
+      <Letras
+        alfa={alfa}
+        jogo={[jogo, setJogo]}
+        erro={[erro, setErro]}
+        word={[word, setWord]}
+      />
+
+      <Chute
+        alfa={alfa}
+        jogo={[jogo, setJogo]}
+        erro={[erro, setErro]}
+        word={[word, setWord]}
+      />
     </div>
   )
 }

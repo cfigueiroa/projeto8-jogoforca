@@ -101,14 +101,14 @@ img {
 .Chute input {
   width: 353px;
   height: 40px;
-  background: #fff;
+  background-color: #fff;
   border: 1px solid #ccc;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
   border-radius: 3px;
 }
 
 .Chute button {
-  background: #e1ecf4;
+  /* background-color: #e1ecf4; */
   border: 1px solid #7aa7c7;
   border-radius: 3px;
   width: 100px;
