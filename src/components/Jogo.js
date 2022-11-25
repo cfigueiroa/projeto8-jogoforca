@@ -1,23 +1,24 @@
 export default function Jogo(props) {
-    const [erro] = props.erro
     const [jogo, setJogo] = props.jogo
-    const rand = props.rand
+    const [miss] = props.miss
     const [word] = props.word
+    const [xord] = props.xord
+    const rand = props.rand
     return (
         <div className="Jogo">
             <div>
                 <img
                     data-test="game-image"
-                    src={require(`../assets/forca${erro}.png`)}
+                    src={require(`../assets/forca${miss}.png`)}
                     alt="" />
             </div>
             <div>
                 <button
                     data-test="choose-word"
-                    onClick={() => { setJogo(false); rand() }}>
+                    onClick={() => { rand(); setJogo(false); }}>
                     Escolher Palavra
                 </button>
-                {!jogo ? <p data-test="word" data-answer={word}>{[...word].map((_letra, i) => <span key={i}>{"_ "}</span>)}</p> : <></>}
+                {!jogo ? <p data-test="word" data-answer={word}>{xord}</p> : <></>}
             </div>
         </div>
     )
