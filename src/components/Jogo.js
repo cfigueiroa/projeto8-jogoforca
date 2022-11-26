@@ -8,7 +8,7 @@ export default function Jogo({ startGame, word, xord, yord, miss, gameOver, setC
             </Left>
             <Right>
                 <button data-test="choose-word" onClick={startGame}>Escolher Palavra</button>
-                <p data-test="word" style={{color: setColor()}} data-answer={word}>{!gameOver() ? yord : xord.map(l => l + " ")}</p>
+                <p data-test="word" style={{color: setColor()}} data-answer={word}>{!gameOver() ? yord : word}</p>
             </Right>
         </JogoContainer>
     )

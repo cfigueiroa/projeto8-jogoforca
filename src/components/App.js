@@ -21,7 +21,7 @@ export default function App() {
     setWord(tmpWord);
     const tmpXord = [...tmpWord];
     setXord(tmpXord);
-    const tmpYord = tmpXord.map(_l => "🥔 ");
+    const tmpYord = tmpXord.map(_l => "_ ");
     setYord(tmpYord);
     const tmpMiss = 0;
     setMiss(tmpMiss);
@@ -78,11 +78,11 @@ export default function App() {
 
   function setColor() {
     if (miss === 6) {
-      return "red";
+      return "#FF0000";
     } else if (yord.join("").replaceAll(' ', '') === word) {
-      return "green";
+      return "#27AE60";
     } else {
-      return "black";
+      return "#000";
     }
   }
 

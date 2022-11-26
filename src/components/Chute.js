@@ -44,4 +44,11 @@ const ChuteContainer = styled.div`
             background-color: #E1ECF4;
             border-radius: 3px;
         }
+        p{
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 44px
+        }
 `;
