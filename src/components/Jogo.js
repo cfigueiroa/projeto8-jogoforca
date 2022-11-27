@@ -9,7 +9,7 @@ export default function Jogo({ isGame, miss, setColor, start, word, yord }) {
             </Left>
             <Right>
                 <button data-test="choose-word" onClick={start}>Escolher Palavra</button>
-                <p data-test="word" style={{ color: setColor() }} data-answer={word}>{!isGame() ? yord : word}</p>
+                <p data-answer={word} data-test="word" style={{ color: setColor() }}>{!isGame() ? yord : word}</p>
             </Right>
         </JogoContainer>
     );
@@ -19,7 +19,7 @@ const JogoContainer = styled.div`
     display: flex;
     justify-content: center;
     margin-bottom: 70px;
-    margin-top: 59px;
+    margin-top: 29px;
 `;
 
 const Left = styled.div`
@@ -42,6 +42,7 @@ const Right = styled.div`
     button {
         background-color: #27ae60;
         border-radius: 8px;
+        border: none;
         color: #fff;
         font-family: 'Roboto', sans-serif;
         font-size: 20px;
@@ -51,6 +52,10 @@ const Right = styled.div`
         line-height: 23px;
         margin-top: 30px;
         width: 200px;
+        &:hover:enabled{
+            cursor: pointer;
+            filter: brightness(110%) saturate(110%);
+        }
     }
     p {
         color: #000;

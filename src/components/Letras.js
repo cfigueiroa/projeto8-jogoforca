@@ -33,6 +33,7 @@ const LetrasContainer = styled.div`
     button{
         background-color: #e1ecf4;
         border-radius: 3px;
+        border: 2px solid #7aa7c7;
         color: #39739d;
         font-family: 'Roboto', sans-serif;
         font-size: 16px;
@@ -42,10 +43,14 @@ const LetrasContainer = styled.div`
         line-height: 19px;
         text-transform: uppercase;
         width: 40px;
+        &:hover:enabled{
+            cursor: pointer;
+            filter: brightness(110%) saturate(110%);
+        }
         &:disabled{
             background-color: #9faab5;
-            color: #7aa7c7;
-        }
+            color: #798a9f;
+        } 
     }
 `;
 
