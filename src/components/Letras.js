@@ -28,13 +28,13 @@ const LetrasContainer = styled.div`
     align-items: center;
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    margin-bottom: 50px;
+    gap: 11px;
+    margin-bottom: 56px;
     button{
-        background-color: #E1ECF4;
+        background-color: #e1ecf4;
         border-radius: 3px;
-        color: #39739D;
-        font-family: 'Roboto';
+        color: #39739d;
+        font-family: 'Roboto', sans-serif;
         font-size: 16px;
         font-style: normal;
         font-weight: 700;
@@ -43,8 +43,8 @@ const LetrasContainer = styled.div`
         text-transform: uppercase;
         width: 40px;
         &:disabled{
-        background-color: #9FAAB5;
-        color: #7AA7C7;
+            background-color: #9faab5;
+            color: #7aa7c7;
         }
     }
 `;

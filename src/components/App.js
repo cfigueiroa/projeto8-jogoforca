@@ -1,7 +1,6 @@
 import { useState } from 'react';
-import alfa from '../misc/alfabeto';
 import Chute from './Chute';
-import GlobalStyle from '../misc/globalStyles';
+import GlobalStyle from '../styles/globalStyles';
 import Jogo from './Jogo';
 import Letras from './Letras';
 import mywl from '../palavras';
@@ -15,8 +14,9 @@ export default function App() {
   const [word, setWord] = useState("");
   const [xord, setXord] = useState([]);
   const [yord, setYord] = useState([]);
+  const alfa = [...'abcdefghijklmnopqrstuvwxyz'];
+  const mtry = 6;
   const norm = str => str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-  const maxt = 6;
 
   function start() {
     const tmpKick = "";
@@ -45,7 +45,7 @@ export default function App() {
       });
       setYord(tmpYord);
     } else {
-      if (miss < maxt) {
+      if (miss < mtry) {
         const tmpMiss = miss + 1;
         setMiss(tmpMiss);
       }
@@ -53,19 +53,19 @@ export default function App() {
   }
 
   function isGame() {
-    return (!word || miss === maxt || yord.join("").replaceAll(' ', '') === word);
+    return (!word || miss === mtry || yord.join("").replaceAll(' ', '') === word);
   }
 
   function guess() {
-    (kick === word) ? setYord([...word]) : setMiss(maxt);
+    (kick === word) ? setYord([...word]) : setMiss(mtry);
     setKick("");
   }
 
   function setColor() {
-    if (miss === maxt) {
-      return "#FF0000";
+    if (miss === mtry) {
+      return "#ff0000";
     } else if (yord.join("").replaceAll(' ', '') === word) {
-      return "#27AE60";
+      return "#27ae60";
     }
     return "#000";
   }
