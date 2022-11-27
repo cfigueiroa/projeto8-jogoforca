@@ -15,6 +15,7 @@ export default function App() {
   const [word, setWord] = useState("");
   const [xord, setXord] = useState([]);
   const [yord, setYord] = useState([]);
+  const norm = str => str.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
 
   function start() {
     const tmpKick = "";
@@ -33,12 +34,12 @@ export default function App() {
 
   function selLetr(letter) {
     setUsed([...used, letter]);
-    if (xord.includes(letter)) {
+    if (xord.map(e => norm(e)).includes(letter)) {
       const tmpXord = [...xord];
       const tmpYord = [...yord];
       tmpXord.forEach((l, i) => {
-        if (l === letter) {
-          tmpYord[i] = letter + " ";
+        if (norm(l) === letter) {
+          tmpYord[i] = l + " ";
         }
       });
       setYord(tmpYord);
