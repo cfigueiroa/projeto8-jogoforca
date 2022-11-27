@@ -57,7 +57,7 @@ export default function App() {
   }
 
   function guess() {
-    (kick === word) ? setYord([...word]) : setMiss(mtry);
+    (kick === word || kick === norm(word)) ? setYord([...word]) : setMiss(mtry);
     setKick("");
   }
 
