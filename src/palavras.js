@@ -22,6 +22,6 @@ const palavras = [
     "vela", "valeta", "vacilo", "viés", "versátil",
     "xadrez", "xilofone", "xarope", "xilindró",
     "zebra", "zagueiro", "zero", "zangão"
-]
+];
 
-export default palavras
+export default palavras;

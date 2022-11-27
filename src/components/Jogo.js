@@ -12,7 +12,7 @@ export default function Jogo({ isGame, miss, setColor, start, word, yord}) {
                 <p data-test="word" style={{color: setColor()}} data-answer={word}>{!isGame() ? yord : word}</p>
             </Right>
         </JogoContainer>
-    )
+    );
 }
 
 const JogoContainer = styled.div`

@@ -9,22 +9,19 @@ export default function Letras({ alfa, selLetr, isGame, used }) {
                 disabled={used.includes(l) || isGame()}
                 onClick={() => selLetr(l)}
                 key={l}>{l}</button>
-        ))
+        ));
     }
 
-    const srt = alfa.slice(0, alfa.length / 2);
-    const end = alfa.slice(alfa.length / 2, alfa.length); 
+    const half = 2;
+    const srt = alfa.slice(0, alfa.length / half);
+    const end = alfa.slice(alfa.length / half, alfa.length);
 
     return (
         <LetrasContainer>
-            <Top>
-                {render(srt)}
-            </Top>
-            <Bot>
-                {render(end)}
-            </Bot>
+            <Top>{render(srt)}</Top>
+            <Bot>{render(end)}</Bot>
         </LetrasContainer>
-    )
+    );
 }
 
 const LetrasContainer = styled.div`

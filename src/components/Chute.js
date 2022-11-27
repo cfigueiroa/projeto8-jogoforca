@@ -17,8 +17,8 @@ export default function Chute({isGame, kick, setKick, guess}) {
                 disabled={isGame()}>
                 Chutar</button>
         </ChuteContainer>
-    )
-};
+    );
+}
 
 const ChuteContainer = styled.div`
     display: flex;
