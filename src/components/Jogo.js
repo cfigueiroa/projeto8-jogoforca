@@ -1,14 +1,15 @@
 import styled from 'styled-components';
 
-export default function Jogo({ startGame, word, xord, yord, miss, gameOver, setColor}) {
+export default function Jogo({ isGame, miss, setColor, start, word, yord}) {
+
     return (
         <JogoContainer>
             <Left>
                 <img data-test="game-image" src={require(`../assets/forca${miss}.png`)} alt="" />
             </Left>
             <Right>
-                <button data-test="choose-word" onClick={startGame}>Escolher Palavra</button>
-                <p data-test="word" style={{color: setColor()}} data-answer={word}>{!gameOver() ? yord : word}</p>
+                <button data-test="choose-word" onClick={start}>Escolher Palavra</button>
+                <p data-test="word" style={{color: setColor()}} data-answer={word}>{!isGame() ? yord : word}</p>
             </Right>
         </JogoContainer>
     )
@@ -26,7 +27,8 @@ const Left = styled.div`
         max-width: 400px;
         max-height: 466.67px;
     }
-`
+`;
+
 const Right = styled.div`
     align-items: flex-end;
     display: flex;
@@ -53,4 +55,4 @@ const Right = styled.div`
         font-weight: 700;
         line-height: 68px;
     }
-`
+`;

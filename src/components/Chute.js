@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
-export default function Chute({gameOver, kick, setKick, tryGuess}) {
+export default function Chute({isGame, kick, setKick, guess}) {
+
     return (
         <ChuteContainer>
             <p>Já sei a palavra!</p>
@@ -8,16 +9,16 @@ export default function Chute({gameOver, kick, setKick, tryGuess}) {
                 value={kick}
                 onChange={(e) => setKick(e.target.value)}
                 data-test="guess-input"
-                disabled={gameOver()}
+                disabled={isGame()}
                 type="text" />
             <button
-                onClick={tryGuess}
+                onClick={guess}
                 data-test="guess-button"
-                disabled={gameOver()}>
+                disabled={isGame()}>
                 Chutar</button>
         </ChuteContainer>
     )
-}
+};
 
 const ChuteContainer = styled.div`
     display: flex;

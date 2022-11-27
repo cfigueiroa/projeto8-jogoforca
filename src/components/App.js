@@ -1,35 +1,37 @@
 import { useState } from 'react';
-import styled from 'styled-components';
+import alfa from '../misc/alfabeto';
+import Chute from './Chute';
 import GlobalStyle from '../misc/globalStyles';
 import Jogo from './Jogo';
 import Letras from './Letras';
-import Chute from './Chute';
-import alfa from '../misc/alfabeto';
 import mywl from '../palavras'
+import styled from 'styled-components';
 
 export default function App() {
 
+  const [kick, setKick] = useState("");
+  const [miss, setMiss] = useState(0);
+  const [used, setUsed] = useState([]);
   const [word, setWord] = useState("");
   const [xord, setXord] = useState([]);
   const [yord, setYord] = useState([]);
-  const [miss, setMiss] = useState(0);
-  const [used, setUsed] = useState([]);
-  const [kick, setKick] = useState("");
 
-  function startGame() {
-    const tmpWord = mywl[Math.floor(Math.random() * mywl.length)];
-    setWord(tmpWord);
-    const tmpXord = [...tmpWord];
-    setXord(tmpXord);
-    const tmpYord = tmpXord.map(_l => "_ ");
-    setYord(tmpYord);
+  function start() {
+    const tmpKick = "";
     const tmpMiss = 0;
-    setMiss(tmpMiss);
     const tmpUsed = [];
+    const tmpWord = mywl[Math.floor(Math.random() * mywl.length)];
+    const tmpXord = [...tmpWord];
+    const tmpYord = tmpXord.map(_l => "_ ");
+    setKick(tmpKick);
+    setMiss(tmpMiss);
     setUsed(tmpUsed);
-  }
+    setWord(tmpWord);
+    setXord(tmpXord);
+    setYord(tmpYord);
+  };
 
-  function clickLetter(letter) {
+  function selLetr(letter) {
     setUsed([...used, letter]);
     if (xord.includes(letter)) {
       const tmpXord = [...xord];
@@ -40,91 +42,43 @@ export default function App() {
         }
       });
       setYord(tmpYord);
-      console.log(tmpYord)
-      if (tmpYord.join("").replaceAll(' ', '') === word) {
-        console.log("Você ganhou!");
-      }
     } else {
       if (miss < 6) {
         const tmpMiss = miss + 1;
         setMiss(tmpMiss);
-        if (tmpMiss === 6) {
-          console.log("Você perdeu!");
-        }
-      }
-      else {
-        console.log("Você já perdeu!");
       }
     }
-  }
+  };
 
-  function gameOver() {
-    if (!word || miss === 6 || yord.join("").replaceAll(' ', '') === word) {
-      return true;
-    }
-    return false;
-  }
+  function isGame() {
+    return (!word || miss === 6 || yord.join("").replaceAll(' ', '') === word);
+  };
 
-  function tryGuess() {
-    if (kick === word) {
-      setYord([...word]);
-      setKick("");
-    } else {
-      console.log("Você perdeu! A palavra era " + word);
-      setMiss(6);
-      setKick("");
-    }
-  }
+  function guess() {
+    (kick === word) ? setYord([...word]) : setMiss(6);
+    setKick("");
+  };
 
   function setColor() {
     if (miss === 6) {
       return "#FF0000";
     } else if (yord.join("").replaceAll(' ', '') === word) {
       return "#27AE60";
-    } else {
-      return "#000";
     }
-  }
-
+    return "#000";
+  };
 
   return (
     <>
       <GlobalStyle />
       <AppContainer>
-        <Jogo
-          gameOver={gameOver}
-          miss={miss}
-          startGame={startGame}
-          word={word}
-          xord={xord}
-          yord={yord}
-          setColor={setColor}
-        />
-        <Letras
-          gameOver={gameOver}
-          yord={yord}
-          miss={miss}
-          alfa={alfa}
-          clickLetter={clickLetter}
-          used={used}
-          word={word}
-        />
-        <Chute
-          kick={kick}
-          setKick={setKick}
-          tryGuess={tryGuess}
-          gameOver={gameOver}
-          yord={yord}
-          miss={miss}
-          alfa={alfa}
-          clickLetter={clickLetter}
-          used={used}
-          word={word}
-        />
+        <Jogo isGame={isGame} miss={miss} setColor={setColor} start={start} word={word} yord={yord} />
+        <Letras alfa={alfa} selLetr={selLetr} isGame={isGame} used={used} />
+        <Chute isGame={isGame} kick={kick} setKick={setKick} guess={guess} />
       </AppContainer>
     </>
   );
-}
+};
 
 const AppContainer = styled.div`
   display: flex;
